@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+   <constant name="struts.devMode" value="false"></constant>
+   <package name="user" extends="struts-default">
+       <action name="saveUser" class="saveUserAction">
+           <result name="success">listUser.jsp</result>
+           <result name="input">index.jsp</result>
+       </action>
+       <action name="listUser" class="listUserAction">
+           <result name="success">listUser.jsp</result>
+           <result name="input">index.jsp</result>
+       </action>
+       <action name="generateExcel" class="generateExcelAction">
+           <result name="success" type="stream">
+               <param name="contentType">application/vnd.ms-excel</param>
+               <param name="contentDisposition">attachment;filename="user.xls"</param>
+               <param name="inputName">downloadFile</param>
+           </result>
+       </action>
+   </package>
+</struts>    
