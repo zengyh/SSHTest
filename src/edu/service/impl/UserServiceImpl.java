@@ -8,9 +8,12 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.commons.lang.RandomStringUtils;
+import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+
+import utils.StringUtils;
 
 import edu.dao.UserDao;
 import edu.po.User;
@@ -18,6 +21,8 @@ import edu.service.UserService;
 import edu.vo.UserVO;
 
 public class UserServiceImpl implements UserService {
+	
+	private Logger logger = Logger.getLogger(UserServiceImpl.class);
 
 	public UserDao userdao;
 
@@ -63,6 +68,8 @@ public class UserServiceImpl implements UserService {
 			row.createCell(2).setCellValue(user.getPassword());
 	    	index++;
 	    }
+	    
+	    logger.error("fsfsdf");
 
 /* 方法一: */
 /*	   ByteArrayOutputStream bos = new ByteArrayOutputStream();
@@ -70,7 +77,8 @@ public class UserServiceImpl implements UserService {
 		   wb.write(bos);
 	   } catch (IOException e) {
 		   // TODO Auto-generated catch block
-		   e.printStackTrace();
+		   //e.printStackTrace();
+		   logger.error(StringUtils.getExceptionMessage(e));
 	   } 
 	   byte content[] = bos.toByteArray();
 	   
@@ -79,7 +87,8 @@ public class UserServiceImpl implements UserService {
 		   bos.close();
 	   } catch (IOException e) {
 		   // TODO Auto-generated catch block
-		   e.printStackTrace();
+		   //e.printStackTrace();
+		   logger.error(StringUtils.getExceptionMessage(e));
 	   } */
 	    
 /* 方法二: */    
@@ -92,7 +101,8 @@ public class UserServiceImpl implements UserService {
 			fos.close();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error(StringUtils.getExceptionMessage(e));
 		}
 		
 		InputStream inputstream = null;
@@ -101,7 +111,8 @@ public class UserServiceImpl implements UserService {
 			inputstream = new FileInputStream(file);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
+			logger.error(StringUtils.getExceptionMessage(e));
 		}
 		
 		new Thread(
@@ -114,7 +125,8 @@ public class UserServiceImpl implements UserService {
 					Thread.sleep(15000);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					//e.printStackTrace();
+					logger.error(StringUtils.getExceptionMessage(e));
 				}
 				file.delete(); //删除临时文件
 			}

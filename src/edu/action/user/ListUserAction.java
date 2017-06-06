@@ -1,14 +1,12 @@
 package edu.action.user;
 
 import java.util.ArrayList;
-
 import com.opensymphony.xwork2.ActionSupport;
-
 import edu.po.User;
 import edu.service.UserService;
 
 public class ListUserAction extends ActionSupport {
-
+	
 	private static final long serialVersionUID = -5919063614671472698L;
 
     public ArrayList<User> userlist;
