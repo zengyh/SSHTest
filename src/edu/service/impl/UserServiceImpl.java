@@ -16,7 +16,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import utils.StringUtils;
 
 import edu.dao.UserDao;
-import edu.po.User;
+import edu.po.Users;
 import edu.service.UserService;
 import edu.vo.UserVO;
 
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> findAll() {
+	public List<Users> findAll() {
 		// TODO Auto-generated method stub
 		return userdao.findAll();
 	}
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void save(UserVO uservo) {
 		// TODO Auto-generated method stub
-        User user = new User();
+        Users user = new Users();
         user.setPassword(uservo.getPassword());
         user.setUsername(uservo.getUsername());
         userdao.save(user);
@@ -58,10 +58,10 @@ public class UserServiceImpl implements UserService {
 		row.createCell(2).setCellValue("密码");
 		
 		int index = 1;
-		List<User> userlist = findAll();
-		Iterator<User> iterator = userlist.iterator();
+		List<Users> userlist = findAll();
+		Iterator<Users> iterator = userlist.iterator();
 	    while(iterator.hasNext()){
-	    	User user = iterator.next();
+	    	Users user = iterator.next();
 	    	row = sheet.createRow(index);
 	    	row.createCell(0).setCellValue(user.getId());
 			row.createCell(1).setCellValue(user.getUsername());

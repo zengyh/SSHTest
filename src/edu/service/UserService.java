@@ -3,12 +3,12 @@ package edu.service;
 import java.io.InputStream;
 import java.util.List;
 
-import edu.po.User;
+import edu.po.Users;
 import edu.vo.UserVO;
 
 public interface UserService {
 	
-	   public List<User>  findAll();
+	   public List<Users>  findAll();
 	     
 	   public void save(UserVO uservo);
 	   

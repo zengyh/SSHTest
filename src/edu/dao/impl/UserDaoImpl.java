@@ -1,38 +1,39 @@
 package edu.dao.impl;
 
 import java.util.List;
+
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import edu.dao.UserDao;
-import edu.po.User;
+import edu.po.Users;
 
 public class UserDaoImpl extends HibernateDaoSupport  implements UserDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<User> findAll() {
+	public List<Users> findAll() {
 		// TODO Auto-generated method stub
-		return (List<User>)this.getHibernateTemplate().find("from User user ");
+		return (List<Users>)this.getHibernateTemplate().find("from Users");
 	}
 
 	@Override
-	public User findById(Integer id) {
+	public Users findById(Integer id) {
 		// TODO Auto-generated method stub
-		return (User)this.getHibernateTemplate().get(User.class, id);
+		return (Users)this.getHibernateTemplate().get(Users.class, id);
 	}
 
 	@Override
-	public void save(User user) {
+	public void save(Users user) {
 		this.getHibernateTemplate().save(user);
 	}
 
 	@Override
-	public void update(User user) {
+	public void update(Users user) {
 		this.getHibernateTemplate().update(user);
 
 	}
 
 	@Override
-	public void delete(User user) {
+	public void delete(Users user) {
 		this.getHibernateTemplate().delete(user);
 
 	}

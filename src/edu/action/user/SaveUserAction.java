@@ -2,7 +2,7 @@ package edu.action.user;
 
 import java.util.ArrayList;
 import com.opensymphony.xwork2.ActionSupport;
-import edu.po.User;
+import edu.po.Users;
 import edu.service.UserService;
 import edu.vo.UserVO;
 
@@ -12,7 +12,7 @@ public class SaveUserAction extends ActionSupport{
 	
 	private UserService  userservice;
     public UserVO uservo;
-    public ArrayList<User> userlist;
+    public ArrayList<Users> userlist;
 
 	public UserVO getUservo() {
 		return uservo;
@@ -34,7 +34,7 @@ public class SaveUserAction extends ActionSupport{
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		this.userservice.save(uservo);
-		userlist = (ArrayList<User>) this.userservice.findAll();
+		userlist = (ArrayList<Users>) this.userservice.findAll();
 		return "success";
 	}
 }

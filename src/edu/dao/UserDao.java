@@ -1,18 +1,18 @@
 package edu.dao;
 
 import java.util.List;
-import edu.po.User;
+import edu.po.Users;
 
 public interface UserDao {
 	
-   public List<User>  findAll();
+   public List<Users>  findAll();
   
-   public User findById(Integer id);
+   public Users findById(Integer id);
    
-   public void save(User user);
+   public void save(Users user);
    
-   public void update(User user);
+   public void update(Users user);
    
-   public void delete(User user);
+   public void delete(Users user);
    
 }

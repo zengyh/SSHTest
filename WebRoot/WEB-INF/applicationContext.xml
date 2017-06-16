@@ -15,6 +15,21 @@
         <property name="url" value="jdbc:mysql://localhost:3306/test"></property>
         <property name="username" value="root"></property>
         <property name="password" value="012345"></property>
+        <!--
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"></property>
+        <property name="username" value="test"></property>
+        <property name="password" value="test"></property>
+        -->
+        <!--
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"></property>        
+        -->
+        <!-- integratedSecurit=false 只能通过sqlserver用户名和密码验证，不能通过windows身份验证 -->
+        <!--
+        <property name="url" value="jdbc:sqlserver://localhost:1433;database=test;integratedSecurity=false"></property>
+        <property name="username" value="sa"></property>
+        <property name="password" value="012345"></property>
+        -->
         <property name="maxActive" value="100"></property>
 	    <property name="maxIdle" value="30"></property>
 	    <property name="maxWait" value="500"></property>
@@ -35,13 +50,19 @@
 		<property name="hibernateProperties">
 		    <props>
 	           <prop key="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</prop>
+	           <!--
+	           <prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+	           -->	           
+	           <!--
+	           <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+	           -->
 	           <prop key="hibernate.show_sql">true</prop>
 	           <prop key="hibernate.format_sql">true</prop>
 		    </props>
 		</property>
 		<property name="mappingResources">
 		    <list>
-		       <value>edu/po/User.hbm.xml</value>
+		       <value>edu/po/Users.hbm.xml</value>
 		    </list>
 		</property>
 	</bean>

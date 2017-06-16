@@ -4,7 +4,7 @@ package edu.po;
  * User entity. @author MyEclipse Persistence Tools
  */
 
-public class User implements java.io.Serializable {
+public class Users implements java.io.Serializable {
 	
 	private static final long serialVersionUID = 22409479335640310L;
 	
@@ -16,11 +16,11 @@ public class User implements java.io.Serializable {
 	// Constructors
 
 	/** default constructor */
-	public User() {
+	public Users() {
 	}
 
 	/** full constructor */
-	public User(String username, String password) {
+	public Users(String username, String password) {
 		this.username = username;
 		this.password = password;
 	}
